@@ -7,5 +7,6 @@ export interface Resource {
     author: string;
     publicationDate: Date;
     isFeatured: boolean;
+    imageUrl: string;
   }
   

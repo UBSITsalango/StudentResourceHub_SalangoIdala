@@ -1,12 +1,15 @@
 <div class="container">
-  <h2>Featured Resources</h2>
-  <div class="row">
-    <div class="col-md-4" *ngFor="let resource of resources">
-      <div class="card">
+  <h2 class="text-center mb-4">Featured Resources</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let resource of resources">
+      <div class="card h-100">
+        <img [src]="resource.imageUrl" class="card-img-top resource-image" alt="{{ resource.title }} image">
         <div class="card-body">
           <h5 class="card-title">{{ resource.title }}</h5>
           <p class="card-text">{{ resource.description }}</p>
           <span class="badge bg-secondary">{{ resource.category }}</span>
+        </div>
+        <div class="card-footer text-center">
           <a [routerLink]="['/about', resource.id]" class="btn btn-primary">View Details</a>
         </div>
       </div>

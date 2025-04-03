@@ -20,7 +20,8 @@ export class AddResourceComponent {
     url: '',
     author: '',
     publicationDate: new Date(),
-    isFeatured: false
+    isFeatured: false,
+    imageUrl: ''
   };
 
   constructor(private resourceService: ResourceService, private router: Router) {}
