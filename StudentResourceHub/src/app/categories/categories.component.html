@@ -1,1 +1,24 @@
-<p>categories works!</p>
+<div *ngIf="category" class="resource-category">
+    <h2>{{ category.title }}</h2>
+    <p>{{ category.description }}</p>
+  
+    <div *ngIf="resources.length > 0" class="resource-list">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let resource of resources">
+          <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">{{ resource.title }}</h5>
+              <p class="card-text">{{ resource.description }}</p>
+              <span class="badge bg-primary">{{ resource.category }}</span>
+              <button class="btn btn-sm btn-outline-secondary mt-2" (click)="viewDetails(resource.id)">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="resources.length === 0">
+      <p>No resources found in this category.</p>
+    </div>
+  </div>
+  
