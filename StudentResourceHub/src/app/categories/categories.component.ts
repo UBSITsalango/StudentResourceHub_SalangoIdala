@@ -1,47 +1,28 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
+import { Resource } from '../models/resource';
+import { RESOURCES_DATA } from '../data/resources-data';
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-interface Resource {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-}
-
-interface Category {
-  title: string;
-  description: string;
-}
 
 @Component({
-  selector: 'app-categories',  // Updated selector
-  templateUrl: './categories.component.html',  // Updated template URL
-  styleUrls: ['./categories.component.css'],  // Updated styles URL
-  imports: [CommonModule, RouterOutlet]
+  selector: 'app-categories',
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.css'],
+  imports: [CommonModule, RouterLink, RouterOutlet]
 })
 export class CategoriesComponent implements OnInit {
-  @Input() category: Category | null = null; // Category passed as input
-  resources: Resource[] = [];
+  resources: Resource[] = RESOURCES_DATA;
+  category!: string;
 
-  allResources: Resource[] = [
-    { id: 1, title: 'Angular Basics', description: 'Introduction to Angular', category: 'Programming' },
-    { id: 2, title: 'UI/UX Design Principles', description: 'Understanding UI/UX', category: 'Design' },
-    { id: 3, title: 'Calculus Guide', description: 'Math resources for beginners', category: 'Math' },
-    { id: 4, title: 'React Introduction', description: 'Learn React', category: 'Programming' }
-  ];
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    if (this.category) {
-      this.filterResourcesByCategory(this.category.title);
-    }
-  }
-
-  filterResourcesByCategory(category: string): void {
-    this.resources = this.allResources.filter(resource => resource.category === category);
-  }
-
-  viewDetails(id: number): void {
-    console.log(`Viewing details for resource ${id}`);
+  ngOnInit() {
+    // Retrieve the category from the route parameter
+    this.category = this.route.snapshot.paramMap.get('category')!;
+    
+    // Filter resources based on the category
+    this.resources = RESOURCES_DATA.filter(
+      res => res.category.toLowerCase() === this.category.toLowerCase()
+    );
   }
 }

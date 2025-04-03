@@ -1,4 +1,19 @@
 <div class="container">
-  <h2>Categories</h2>
+  <h2>Resource Categories</h2>
+
+  <!-- Navigation to select category -->
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-info w-100" routerLink="programming">Programming</button>
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-info w-100" routerLink="design">Design</button>
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-info w-100" routerLink="math">Math</button>
+    </div>
+  </div>
+
+  <!-- Router Outlet for displaying child components -->
   <router-outlet></router-outlet>
 </div>
