@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <h2 class="text-center">Resource List</h2>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let resource of resources">
+        <div class="card mb-3 shadow-sm" [ngClass]="{ 'bg-light': resource.category === 'Design' }">
+          <div class="card-body">
+            <img [src]="resource.imageUrl" class="card-img-top" alt="Resource Image">
+            <h5 class="card-title">{{ resource.title }}</h5>
+            <p class="card-text">{{ resource.description }}</p>
+            <span class="badge bg-primary">{{ resource.category }}</span>
+            <button 
+              class="btn btn-sm btn-outline-secondary mt-2"
+              [disabled]="!resource.description" 
+              (click)="viewDetails(resource.id)">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
