@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   template: `
     <footer class="footer">
       <p>&copy; {{ currentYear }} Student Resource Hub</p>
-      <p>Team Member 1: Idala, Ashley </p>
-      <p>Team Member 2: Salango, Tyrone</p>
+      <p>Team Members: Idala, Ashley | Salango, Tyrone </p>
+
 
       </footer>
   `,
