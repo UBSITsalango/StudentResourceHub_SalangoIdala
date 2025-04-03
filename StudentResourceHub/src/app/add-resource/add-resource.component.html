@@ -1,1 +1,62 @@
-<p>add-resource works!</p>
+<div class="container">
+  <h2>Add New Resource</h2>
+
+  <form (ngSubmit)="onSubmit()" #resourceForm="ngForm">
+    
+    <!-- Title Field -->
+    <div class="form-group mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" id="title" class="form-control" [(ngModel)]="newResource.title" name="title" required placeholder="Enter the title of the resource">
+    </div>
+
+    <!-- Description Field -->
+    <div class="form-group mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea id="description" class="form-control" [(ngModel)]="newResource.description" name="description" required placeholder="Provide a brief description of the resource"></textarea>
+    </div>
+
+    <!-- Category Field -->
+    <div class="form-group mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select id="category" class="form-control" [(ngModel)]="newResource.category" name="category" required>
+        <option value="" disabled selected>Select a category</option>
+        <option value="Programming">Programming</option>
+        <option value="Design">Design</option>
+        <option value="Math">Math</option>
+      </select>
+    </div>
+
+    <!-- URL Field -->
+    <div class="form-group mb-3">
+      <label for="url" class="form-label">URL</label>
+      <input type="url" id="url" class="form-control" [(ngModel)]="newResource.url" name="url" required placeholder="Enter the resource URL">
+    </div>
+
+    <!-- Author Field -->
+    <div class="form-group mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input type="text" id="author" class="form-control" [(ngModel)]="newResource.author" name="author" required placeholder="Enter the author's name">
+    </div>
+
+    <!-- Publication Date Field -->
+    <div class="form-group mb-3">
+      <label for="publicationDate" class="form-label">Publication Date</label>
+      <input type="date" id="publicationDate" class="form-control" [(ngModel)]="newResource.publicationDate" name="publicationDate" required>
+    </div>
+
+    <!-- Image Upload Field -->
+    <div class="form-group mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input type="file" id="image" class="form-control" (change)="onImageUpload($event)" accept="image/*">
+    </div>
+
+    <!-- Featured Checkbox -->
+    <div class="form-group mb-3">
+      <label for="isFeatured" class="form-check-label">Is Featured</label>
+      <input type="checkbox" id="isFeatured" [(ngModel)]="newResource.isFeatured" name="isFeatured" class="form-check-input ms-2">
+    </div>    
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="!resourceForm.form.valid">Add Resource</button>
+  </form>
+</div>

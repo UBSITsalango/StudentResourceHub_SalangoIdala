@@ -1,0 +1,17 @@
+.card {
+  transition: transform 0.2s, box-shadow 0.3s ease-in-out; /* Added box-shadow transition */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly larger scale effect */
+  box-shadow: 0px 8px 15px rgba(0, 123, 255, 0.5); /* Glowing effect with blue shadow */
+}
+
+.resource-image {
+  height: 200px; /* Fixed height for all images */
+  width: 100%; /* Ensure full width inside the card */
+  object-fit: cover; /* Maintain aspect ratio while cropping the image if necessary */
+  border: 2px solid #ddd; /* Border around the image */
+  border-radius: 8px; /* Optional: round the corners of the border */
+}
+
