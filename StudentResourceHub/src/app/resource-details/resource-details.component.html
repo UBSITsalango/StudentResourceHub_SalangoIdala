@@ -1,6 +1,10 @@
 <div *ngIf="resource" class="resource-details">
     <h2>{{ resource.title }}</h2>
+    <img [src]="resource.imageUrl" alt="Resource Image" class="img-fluid mb-3">
     <p>{{ resource.description }}</p>
     <span>Category: {{ resource.category }}</span>
+    <div class="mt-3">
+      <button class="btn btn-primary" (click)="goBack()">Back to List</button>
+    </div>
   </div>
   

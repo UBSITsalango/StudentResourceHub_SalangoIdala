@@ -7,5 +7,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./resource-details.component.css']
 })
 export class ResourceDetailsComponent {
-  @Input() resource: { title: string; description: string; category: string } | null = null;
+  @Input() resource: { title: string; description: string; category: string; imageUrl: string } | null = null;
+
+  goBack(): void {
+    console.log('Navigating back to resource list');
+  }
 }
