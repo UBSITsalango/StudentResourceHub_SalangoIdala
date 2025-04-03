@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 interface Resource {
@@ -11,7 +12,8 @@ interface Resource {
 @Component({
   selector: 'app-home',  // Updated selector
   templateUrl: './home.component.html',  // Updated template URL
-  styleUrls: ['./home.component.css']  // Updated styles URL
+  styleUrls: ['./home.component.css'],  // Updated styles URL
+  imports: [CommonModule]
 })
 export class HomeComponent implements OnInit {
   resources: Resource[] = [

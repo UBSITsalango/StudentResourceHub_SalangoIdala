@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 interface Resource {
@@ -15,7 +16,8 @@ interface Category {
 @Component({
   selector: 'app-categories',  // Updated selector
   templateUrl: './categories.component.html',  // Updated template URL
-  styleUrls: ['./categories.component.css']  // Updated styles URL
+  styleUrls: ['./categories.component.css'],  // Updated styles URL
+  imports: [CommonModule]
 })
 export class CategoriesComponent implements OnInit {
   @Input() category: Category | null = null; // Category passed as input
