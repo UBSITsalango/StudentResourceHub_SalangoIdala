@@ -44,6 +44,12 @@
       <input type="date" id="publicationDate" class="form-control" [(ngModel)]="newResource.publicationDate" name="publicationDate" required>
     </div>
 
+    <!-- Image Upload Field -->
+    <div class="form-group mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input type="file" id="image" class="form-control" (change)="onImageUpload($event)" accept="image/*">
+    </div>
+
     <!-- Featured Checkbox -->
     <div class="form-group mb-3">
       <label for="isFeatured" class="form-check-label">Is Featured</label>

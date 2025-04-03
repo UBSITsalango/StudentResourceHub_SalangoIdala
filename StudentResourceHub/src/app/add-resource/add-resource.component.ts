@@ -30,4 +30,11 @@ export class AddResourceComponent {
     this.resourceService.addResource(this.newResource);
     this.router.navigate(['/']); // Navigate back to home page after adding the resource
   }
+
+  onImageUpload(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.newResource.imageUrl = URL.createObjectURL(file); // Store the file URL temporarily
+    }
+  }  
 }
