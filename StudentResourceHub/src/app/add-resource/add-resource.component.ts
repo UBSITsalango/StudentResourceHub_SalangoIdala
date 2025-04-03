@@ -1,23 +1,32 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Resource } from '../models/resource';
+import { ResourceService } from '../services/resource.service';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-add-resource',  // Updated selector
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './add-resource.component.html',  // Updated template URL
-  styleUrls: ['./add-resource.component.css']  // Updated styles URL
+  selector: 'app-add-resource',
+  templateUrl: './add-resource.component.html',
+  styleUrls: ['./add-resource.component.css'],
+  imports: [CommonModule, FormsModule]
 })
 export class AddResourceComponent {
-  resource = { title: '', description: '', category: '' };
+  newResource: Resource = {
+    id: 0,
+    title: '',
+    description: '',
+    category: 'Programming', // Default category
+    url: '',
+    author: '',
+    publicationDate: new Date(),
+    isFeatured: false
+  };
 
-  @Output() resourceAdded = new EventEmitter<{ title: string; description: string; category: string }>();
+  constructor(private resourceService: ResourceService, private router: Router) {}
 
-  addResource() {
-    if (this.resource.title && this.resource.description && this.resource.category) {
-      this.resourceAdded.emit(this.resource);
-      this.resource = { title: '', description: '', category: '' }; // Reset form
-    }
+  onSubmit() {
+    this.resourceService.addResource(this.newResource);
+    this.router.navigate(['/']); // Navigate back to home page after adding the resource
   }
 }
