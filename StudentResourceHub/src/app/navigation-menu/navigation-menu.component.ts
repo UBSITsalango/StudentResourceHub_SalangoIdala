@@ -1,40 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-menu',
-  template: `
-    <nav class="nav-menu">
-      <ul>
-        <li><a routerLink="/home">Home</a></li>
-        <li class="dropdown">
-          <a href="#">Categories</a>
-          <ul class="dropdown-menu">
-            <li><a routerLink="/categories/programming">Programming</a></li>
-            <li><a routerLink="/categories/design">Design</a></li>
-            <li><a routerLink="/categories/math">Math</a></li>
-          </ul>
-        </li>
-        <li><a routerLink="/about">About</a></li>
-        <li><a routerLink="/add-resource">Add Resource</a></li>
-      </ul>
-    </nav>
-  `,
-  styles: [`
-    .nav-menu ul {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-    }
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      background: white;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 10px;
-    }
-    .dropdown:hover .dropdown-menu {
-      display: block;
-    }
-  `]
+  templateUrl: './navigation-menu.component.html',  // Updated template URL
+  styleUrls: ['./navigation-menu.component.css'],  // Updated styles URL
+  imports: [CommonModule, RouterLink, RouterLinkActive, RouterModule]
 })
 export class NavigationMenuComponent {}
