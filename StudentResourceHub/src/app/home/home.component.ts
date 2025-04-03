@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 interface Resource {
   id: number;
@@ -13,7 +14,7 @@ interface Resource {
   selector: 'app-home',  // Updated selector
   templateUrl: './home.component.html',  // Updated template URL
   styleUrls: ['./home.component.css'],  // Updated styles URL
-  imports: [CommonModule]
+  imports: [CommonModule, RouterLink]
 })
 export class HomeComponent implements OnInit {
   resources: Resource[] = [

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 interface Resource {
   id: number;
@@ -17,7 +18,7 @@ interface Category {
   selector: 'app-categories',  // Updated selector
   templateUrl: './categories.component.html',  // Updated template URL
   styleUrls: ['./categories.component.css'],  // Updated styles URL
-  imports: [CommonModule]
+  imports: [CommonModule, RouterOutlet]
 })
 export class CategoriesComponent implements OnInit {
   @Input() category: Category | null = null; // Category passed as input
