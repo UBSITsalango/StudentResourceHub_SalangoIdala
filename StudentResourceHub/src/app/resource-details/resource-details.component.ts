@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-resource-details',
-  imports: [],
+  standalone: true,
   templateUrl: './resource-details.component.html',
-  styleUrl: './resource-details.component.css'
+  styleUrls: ['./resource-details.component.css']
 })
 export class ResourceDetailsComponent {
-
+  @Input() resource: { title: string; description: string; category: string } | null = null;
 }
