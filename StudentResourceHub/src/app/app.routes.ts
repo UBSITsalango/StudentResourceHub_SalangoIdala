@@ -9,7 +9,7 @@ import { AddResourceComponent } from './add-resource/add-resource.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'about/:id', component: AboutComponent },
   { path: 'categories', component: CategoriesComponent, children: [
       { path: 'programming', component: ProgrammingComponent },
       { path: 'design', component: DesignComponent },

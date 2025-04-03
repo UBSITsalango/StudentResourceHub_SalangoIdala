@@ -1,18 +1,22 @@
+import { Component } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Resource } from '../models/resource';
+import { RESOURCES_DATA } from '../data/resources-data';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-about',  // Updated selector
-  standalone: true,
-  templateUrl: './about.component.html',  // Updated template URL
-  styleUrls: ['./about.component.css'],  // Updated styles URL
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css'],
   imports: [CommonModule, RouterLink]
 })
 export class AboutComponent {
-  @Input() resource: { title: string; description: string; category: string; imageUrl: string } | null = null;
+  resource!: Resource;
 
-  goBack(): void {
-    console.log('Navigating back to resource list');
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    const resourceId = Number(this.route.snapshot.paramMap.get('id'));
+    this.resource = RESOURCES_DATA.find(res => res.id === resourceId)!;
   }
 }

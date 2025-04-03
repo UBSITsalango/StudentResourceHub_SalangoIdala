@@ -1,5 +1,9 @@
-<div class="container">
-  <h2>Resource Details</h2>
-  <p>Details about a specific resource will be displayed here.</p>
-  <a routerLink="/" class="btn btn-secondary">Back to List</a>
+<div class="container" *ngIf="resource">
+  <h2>{{ resource.title }}</h2>
+  <p><strong>Category:</strong> {{ resource.category }}</p>
+  <p><strong>Author:</strong> {{ resource.author }}</p>
+  <p><strong>Publication Date:</strong> {{ resource.publicationDate | date }}</p>
+  <p><strong>Description:</strong> {{ resource.description }}</p>
+  <a [href]="resource.url" target="_blank" class="btn btn-info">View Resource</a>
+  <button class="btn btn-secondary mt-3" [routerLink]="['/']">Back to List</button>
 </div>
