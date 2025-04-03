@@ -1,1 +1,22 @@
-<p>add-resource-form works!</p>
+<div class="card p-3">
+    <h3>Add New Resource</h3>
+    <form (ngSubmit)="addResource()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" class="form-control" [(ngModel)]="resource.title" name="title" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" class="form-control" [(ngModel)]="resource.description" name="description" required></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <input type="text" id="category" class="form-control" [(ngModel)]="resource.category" name="category" required>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Add Resource</button>
+    </form>
+  </div>
+  
